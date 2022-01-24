@@ -16,17 +16,17 @@ print("Введите второе число");
 var  b = readLine()
 
 var result = sum(a,b)
-print("Результат сложения  - \(result)")
+print("Результат сложения 1  - \(result)")
 
 let sum2: (String?,String?) -> Int = {return (Int($0!)! + Int($1!)!)}
 result = sum2(a,b)
-print("Результат сложения  - \(result)")
+print("Результат сложения 2  - \(result)")
 
 let sum3: (String?,String?) -> Int = {(Int($0!)! + Int($1!)!)}
 result = sum3(a,b)
-print("Результат сложения  - \(result)")
+print("Результат сложения 3  - \(result)")
 
 
 let sum4 = {(Int($0!)! + Int($1!)!)}
 result = sum4(a,b)
-print("Результат сложения  - \(result)")
+print("Результат сложения  4 - \(result)")
