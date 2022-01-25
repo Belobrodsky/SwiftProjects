@@ -20,6 +20,8 @@ var attempCount = 0
 var isWin = false;
 
 
+
+
 repeat
 {
     guard let intA = Int(readLine()!) else {
