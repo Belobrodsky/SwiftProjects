@@ -82,7 +82,37 @@ public class SquareArea: UIView, SquareAreaProtocol
         }
     }
     
-
+    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first{
+            let touchLocation = touch.location(in: self)
+            for ball in balls {
+                if (ball.frame.contains(touchLocation)) {
+                    snapBehavior = UISnapBehavior(item: ball, snapTo: touchLocation)
+                    snapBehavior?.damping = 0.5
+                    animator?.addBehavior(snapBehavior!)
+                }
+            }
+            
+        }
+    } //touchesBegan
+    
+    
+    override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let touchLocation = touch.location(in: self)
+            if let snapBehavior = snapBehavior {
+                snapBehavior.snapPoint = touchLocation
+            }
+            
+        }
+    } // touchesMoved
+    
+    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let snapBehavior = snapBehavior {
+            animator?.removeBehavior(snapBehavior)
+        }
+        snapBehavior = nil
+    }
     
 } //SquareArea
 
@@ -90,6 +120,7 @@ let sizeOfArea = CGSize(width: 600, height: 600)
 var area = SquareArea(size: sizeOfArea, color: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1))
 
 
+
+
+area.setBalls(withColors: [UIColor.green,UIColor.blue, UIColor.white, UIColor.red], andRadius: 72)
 PlaygroundPage.current.liveView = area
-
-
