@@ -117,7 +117,7 @@ public class SquareArea: UIView, SquareAreaProtocol
 } //SquareArea
 
 let sizeOfArea = CGSize(width: 600, height: 600)
-var area = SquareArea(size: sizeOfArea, color: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1))
+var area = SquareArea(size: sizeOfArea, color: #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1))
 
 
 
