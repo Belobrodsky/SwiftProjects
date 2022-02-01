@@ -16,9 +16,15 @@ class SecondViewController: UIViewController {
 //
 //        // Do any additional setup after loading the view.
 //    }
-@IBAction func ShowMessageOrange() -> Void {
     
-    print("Orange")}
+    
+    @IBOutlet weak var myLabel: UILabel!
+    
+    
+    
+    
+    
+
 
     
     @IBAction func ShowAlert(){
@@ -42,7 +48,23 @@ class SecondViewController: UIViewController {
         
         
         self.present(alertController, animated: true, completion: nil)
+        
+          
+        
     }
+    
+    
+    @IBAction func changeLabelText(_ sender: UIButton) {
+        
+        if let buttonText = sender.titleLabel!.text
+        {
+            self.myLabel.text = "\(buttonText) button was pressed"
+        }
+        
+    }
+    
+    
+    
     
     /*
     // MARK: - Navigation
@@ -53,5 +75,19 @@ class SecondViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+    @IBAction func switchValChange(_ sender: UISwitch) {
+        if sender.isOn {
+            print("1")
+        }
+        else
+        {
+            print("0")
+        }
+    }
+    
+
+    
+
 
 }
